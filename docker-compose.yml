@@ -1,0 +1,16 @@
+version: '3'
+services:
+  server:
+    build: .
+    container_name: server_app
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
+    command: npm run server
+  client:
+    build: .
+    container_name: client_app
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
+    command: npm run client
