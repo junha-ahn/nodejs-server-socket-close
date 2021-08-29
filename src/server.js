@@ -2,12 +2,11 @@ const express = require('express')
 
 const app = express()
 const port = 80
-
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
-
+// 1번 방법
 app.get('/', async (req, res) => {
 	res.send('bye')
 })
+// 2번 방법
 app.get('/socket-close', async (req, res) => {
 	res.socket.end(
 		[
@@ -22,7 +21,7 @@ app.get('/socket-close', async (req, res) => {
 		].join('\n'),
 	)
 })
-
+// 3번 방법
 let socket = null
 app.get('/socket-destroy', async (req, res) => {
 	socket = res.socket
@@ -31,7 +30,7 @@ app.get('/socket-destroy', async (req, res) => {
 	setTimeout(() => {
 		console.log('destroyed: ', socket.destroyed)
 		if (!socket.destroyed) socket.destroy()
-	}, 1000)
+	}, 1500) // for keep-alive packet
 })
 
 app.listen(port, () => {
