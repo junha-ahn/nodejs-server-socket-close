@@ -1,6 +1,7 @@
 `TCP/IP` 연결종료 과정과 패킷을 보기 위한 프로젝트
 
 - 특히 서버가 먼저 소켓 연결을 끊는게 목표다.
+- [블로그 글](https://devkly.com/network/nodejs-server-socket-close/)
 
 ## How to Run
 
